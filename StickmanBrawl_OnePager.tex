@@ -23,7 +23,7 @@
 % Header
 \newcommand{\GameTitle}{Stickman Brawl}
 \newcommand{\Subtitle}{One-Pager}
-\newcommand{\Version}{v2.0 — \today}
+\newcommand{\Version}{v2.1 — \today}
 
 \begin{document}
 \begin{tcolorbox}
@@ -34,7 +34,10 @@
 \begin{multicols}{2}
 
 \section*{Pitch}
-\textbf{Stickman Brawl} est un jeu de combat d'arène \textbf{multijoueur local} en \textbf{vue de côté}, inspiré de la série Super Smash Bros. Les stickmen se battent avec attaques et combos directionnels pour \textbf{éjecter leurs adversaires hors de l’arène}. Prototype jouable \textbf{2 joueurs locaux} d'ici \textbf{19 oct. 2025}.
+\textbf{Dans Stickman Brawl}, des \textbf{stickmen articulés} s’affrontent dans des arènes à plateformes. 
+Chaque coup réduit la vie de l’adversaire ou le précipite dans le vide. 
+Pensé pour le \textbf{multijoueur local en vue de côté}, le jeu propose des duels rapides et intenses, 
+inspirés de la série \textbf{Super Smash Bros.}. Prototype jouable \textbf{2 joueurs locaux} d'ici \textbf{19 oct. 2025}.
 
 \section*{Piliers}
 Lisibilité / Intensité / Maîtrise des contrôles / Rounds rapides.
@@ -42,9 +45,9 @@ Lisibilité / Intensité / Maîtrise des contrôles / Rounds rapides.
 \section*{Boucle de jeu}
 \begin{itemize}
   \item \textbf{Préparation} : lancement rapide, choix couleur/personnage.
-  \item \textbf{Combat} : \item \textbf{Combat} : affrontement dynamique 1v1 dans une arène ouverte, où l’objectif est d’éjecter l’adversaire.
-  \item \textbf{Fin de match} : l’adversaire est éjecté hors de l’écran.
-  \item \textbf{Relance} : possibilité de relancer immédiatement ou revenir au menu principal.
+  \item \textbf{Combat} : affrontement dynamique 1v1 dans une arène à plateformes.
+  \item \textbf{KO} : lorsqu’un joueur est vaincu, il perd une stock et réapparaît.
+  \item \textbf{Fin de match} : le match se termine quand un joueur n’a plus de stocks.
 \end{itemize}
 
 \section*{Mécaniques clés}
@@ -52,18 +55,18 @@ Lisibilité / Intensité / Maîtrise des contrôles / Rounds rapides.
   \item \textbf{Déplacements} : marche, course, saut et double saut.
   \item \textbf{Dashes} : au sol et en l’air pour mobilité et esquive.
   \item \textbf{Attaques directionnelles} : légères (rapides) et lourdes (chargeables).
-  \item \textbf{Lancer} : saisir et projeter un adversaire.
-  \item \textbf{Victoire} : éjecter l’adversaire hors de l’arène (KO).
+  \item \textbf{Saisie / lancer} : pour contrôler la position de l’adversaire.
+  \item \textbf{Victoire} : quand l’adversaire n’a plus de stocks.
 \end{itemize}
 
 \section*{Contrôles (Xbox)}
 \begin{description}
   \item[Stick gauche] Déplacements / Orientation
-  \item[A] Attaque lourde (maintenir pour charger)
-  \item[B] Attaque légère (directionnelle selon le stick)
+  \item[A] Attaque lourde
+  \item[B] Attaque légère
+  \item[X/Y] Saut / Double saut
   \item[RB/LB] Saisie
-  \item[RB/LB] Bouclier / Esquive
-  \item[X/Y] Saut
+  \item[RT/LT] Bouclier / Esquive
   \item[Start] Menu pause (Reprendre / Relancer / Quitter)
 \end{description}
 
@@ -71,11 +74,11 @@ Lisibilité / Intensité / Maîtrise des contrôles / Rounds rapides.
 Prototype minimal mais complet :  
 \begin{itemize}
   \item \textbf{Joueurs} : 2 stickmen jouables.
-  \item \textbf{Arène} : plateforme centrale et bords ouverts.
-  \item \textbf{Mécaniques} : déplacements, esquive, bouclier, double saut, attaques légères/lourdes, saisie.
-  \item \textbf{Feedback} : hitstop, knockback progressif, sons percussifs simples.
-  \item \textbf{HUD} : compteur de dégâts (pourcentage), chrono, menu pause.
-  \item \textbf{Défaite} : éjection hors de l’écran = KO.
+  \item \textbf{Arène} : plateforme centrale avec bords ouverts (vide).
+  \item \textbf{Mécaniques} : déplacements, attaques légères/lourdes, double saut, saisie, bouclier, esquive.
+  \item \textbf{Feedback} : hitstop, knockback, sons percussifs simples.
+  \item \textbf{HUD} : barre de vie, chrono, menu pause.
+  \item \textbf{Défaite} : vie épuisée ou chute dans le vide = KO.
 \end{itemize}
 
 \section*{Public cible \& plateformes}
@@ -88,8 +91,8 @@ Prototype minimal mais complet :
 
 \section*{Style visuel \& audio}
 \begin{itemize}
-  \item \textbf{Visuel} : stickmen, couleurs au choix.
-  \item \textbf{Indicateurs} : pourcentage de dégâts visible sous forme stylisée.
+  \item \textbf{Visuel} : stickmen, couleur au choix.
+  \item \textbf{Indicateurs} : barre de vie claire et lisible dans l'interface.
   \item \textbf{Arène} : plateformes simples, arrière-plan neutre, lisibilité prioritaire.
   \item \textbf{Audio} : sons d’impact clairs et secs; musique rythmée et courte en boucle.
 \end{itemize}
@@ -99,15 +102,15 @@ Unreal Engine 5.6 (Blueprint) • Dépôt Git • Documentation \LaTeX{}.
 
 \section*{Risques \& parades}
 \begin{itemize}
-  \item \textbf{Précision du knockback} : itérations régulières pour équilibrer vitesse et force.
+  \item \textbf{Équilibrage vie/dégâts} : ajustements constants pour que les matches restent courts mais intenses.
   \item \textbf{Lisibilité des collisions} : silhouettes contrastées, feedback visuel clair.
   \item \textbf{Scope creep} : se limiter à 2 joueurs, 1 arène et un set réduit de coups.
 \end{itemize}
 
 \section*{USP}
 \begin{itemize}
-  \item \textbf{Simplicité stickman} : lisible et stylisé, facile à suivre.
-  \item \textbf{Knockback progressif} : tension croissante à chaque coup.
+  \item \textbf{Stickmen accessibles} : style simple, lisible et immédiatement fun.
+  \item \textbf{Double condition de KO} : chute dans le vide ou vie à zéro.
   \item \textbf{Combat pick-up-and-play} : prise en main rapide, relance instantanée.
   \item \textbf{Multijoueur local immédiat} : fun accessible à 2 joueurs dès le prototype.
 \end{itemize}
